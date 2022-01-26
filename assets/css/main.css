@@ -1,0 +1,769 @@
+/*************/
+/** Import **/
+/***********/
+
+/* CSS Reset Meyerweb  */
+@import url(../css/reset.css);
+
+/* Fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
+
+/**************/
+/** Content **/
+/************/
+
+/* Pour faire en sorte que 1rem = 10px */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.content-wrapper {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* Header */
+.navbar {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+}
+  .navbar.scrolled {
+    background-color: #000000d1;
+    transition: background-color 200ms linear;
+    -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+}
+  .navbar a {
+    color: #fff;
+    font-family: 'Merriweather', serif; 
+    font-size: 1.5rem; font-weight: 700;
+    text-decoration: none;  
+  }
+  /*.navbar a:hover {
+    border-bottom: 1px solid #91C5CD;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}*/
+  .navbarLink a:hover{
+    border-color: #C6B56D;
+    padding-bottom: 0.25rem;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2rem;
+  }
+ 
+  
+
+  .header {
+    width: 100%;
+  }
+  .content-navbar {
+    width: 75%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .content-navbar div {
+    grid-column: auto / span 1;
+    text-align: center;
+  }
+  .logo {
+    height: 10rem; width: 10rem;
+    }
+  
+
+/* Section Video */
+#video {
+    width: 100%; height: 90vh;
+}
+
+#herovideo {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  background-color: #00000082;
+  height: 90vh;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Section Carte */
+#carte h2::before, #carte h2::after{
+  content:''; 
+  display:inline-block; 
+  vertical-align: middle; 
+  width: 10vw; height: 4px; 
+  margin: 0 5vw; 
+  background: #C6B56D;
+}
+
+#carte h2 {margin-bottom: 2rem;}
+
+#carte a {
+  color: black;
+  font-family: 'Merriweather', serif; 
+  font-size: 1.5rem; font-weight: 700;
+  text-decoration: none;
+}
+
+#carte a.selected {
+  border-color: #C6B56D;
+  padding-bottom: 0.25rem; 
+  border-bottom-style: solid; 
+  border-bottom-width: 0.2rem;
+  width: fit-content;  
+}
+
+
+/* Section Ingredients */
+#ingredients {
+  text-align: center;
+  font-family: 'Merriweather', serif; 
+  font-size: 1.5rem; font-weight: 300;
+}
+
+.icon {
+  height: 10rem; width: 10rem;
+  margin-bottom: 1rem;
+}
+
+/* Section Restaurant */
+
+
+/* Section Map */
+#map {height: 50vh; width: 100%;}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.icon-social {
+  height: 5rem; width: 5rem;
+}
+
+/* JS Hamburger */
+.button_container {
+  position: fixed;
+  /*top: 6.5%;
+  left: 7%;*/
+  margin: 3.5rem 0 0 3.5rem;
+  height: 27px; width: 35px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease;
+}
+.button_container:hover {
+  opacity: .7;
+}
+.button_container.active .top {
+  transform: translateY(11px) translateX(0) rotate(45deg);
+  background: #fff;
+  -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
+  -moz-transform: translateY(11px) translateX(0) rotate(45deg);
+  -ms-transform: translateY(11px) translateX(0) rotate(45deg);
+  -o-transform: translateY(11px) translateX(0) rotate(45deg);
+}
+.button_container.active .middle {
+  opacity: 0;
+  background: #fff;
+}
+.button_container.active .bottom {
+  transform: translateY(-11px) translateX(0) rotate(-45deg);
+  background: #fff;
+  -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
+  -moz-transform: translateY(-11px) translateX(0) rotate(-45deg);
+  -ms-transform: translateY(-11px) translateX(0) rotate(-45deg);
+  -o-transform: translateY(-11px) translateX(0) rotate(-45deg);
+}
+.button_container span {
+  background: #fff;
+  border: none;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .35s ease;
+  cursor: pointer;
+  border-radius: 15%;
+}
+.button_container span:nth-of-type(2) {
+  top: 11px;
+}
+.button_container span:nth-of-type(3) {
+  top: 22px;
+}
+
+.overlayHamb {
+  position: fixed;
+  background: #000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+  z-index: 98;
+}
+.overlayHamb.open {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+.overlayHamb.open li {
+  animation: fadeInRight .5s ease forwards;
+  animation-delay: .35s;
+}
+.overlayHamb.open li:nth-of-type(2) {
+  animation-delay: .4s;
+}
+.overlayHamb.open li:nth-of-type(3) {
+  animation-delay: .45s;
+}
+.overlayHamb.open li:nth-of-type(4) {
+  animation-delay: .50s;
+}
+.overlayHamb nav {
+  position: relative;
+  height: 35%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4.5rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  left: 7%;
+}
+.overlayHamb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+.overlayHamb ul li {
+  display: block;
+  height: 25%;
+  height: calc(100% / 4);
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+.overlayHamb ul li a {
+  /*display: block;*/
+  position: relative;
+  color: #FFF;
+  text-decoration: none;
+  overflow: hidden;
+}
+.overlayHamb ul li a:hover:after, .overlayHamb ul li a:focus:after, .overlayHamb ul li a:active:after {
+  width: 100%;
+}
+.overlayHamb ul li a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #C6B56D;
+  transition: .35s;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+/***************/
+/* Typography */
+/*************/
+#carte h2, #ingredients h2, #restaurant h2, #coordinate h2, .restaurant-description {text-align: center;}
+
+#ingredients h2, #restaurant h2 {
+  padding-bottom: 6rem;
+}
+
+#coordinate h2 {
+  padding-bottom: 2rem;
+}
+
+#politique-confidentialite p, #mentions-legales p, #restaurant p, #coordinate p, .phone {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+#politique-confidentialite ul {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+#mentions-legales h1 h2, #politique-confidentialite h1, h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem; font-weight: 700;
+}
+
+#restaurant, #mentions-legales, #politique-confidentialite {color: #fff;}
+
+h1, h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem; font-weight: 700;
+}
+
+#ingredients h2:after, #restaurant h2:after, #mentions-legales h2:after, #politique-confidentialite h2:after {
+  content: '';
+  display: block;
+  width: 30%;
+  border: 2px solid #C6B56D;
+  margin-top: 2rem; 
+}
+
+#mentions-legales h1:after, #politique-confidentialite h1:after {
+  content: '';
+  display: block;
+  width: 30%;
+  border: 2px solid #C6B56D;
+  margin-top: 2.5rem; 
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem; font-weight: 300;
+}
+
+#display-menu h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2rem; font-weight: 400;
+  padding-bottom: 1rem;
+}
+#display-menu p, #display-menu li {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem; font-weight: 300;
+  line-height: 1.6;
+}
+
+.p-hours {line-height: 1.8;}
+.p-thanks, .p-adress {line-height: 1.2;}
+.phone a {color: #000;}
+
+/**************/
+/* Position */
+/**********/
+.flex {display: flex;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;}
+  .align-center {align-items: center;}
+  .justify-start {justify-content: flex-start;}
+  .justify-center {justify-content: center;}
+  .column {flex-direction: column;}
+  .row {flex-direction: row;}
+  .space-between {justify-content: space-between;}
+  .space-around {justify-content: space-around;}
+
+.pos-absolute {position: absolute;}
+.pos-relative {position: relative;}
+.nowrap {overflow-wrap: normal;}
+
+.display-block {display: block;}
+.js-end {justify-self: start;}
+
+/* Grid */
+.grid {display: grid;}
+  .js-start {justify-self: start;}  
+  .js-end {justify-self: end;}
+  .js-center {justify-self: center;}
+
+  .adress {grid-area: adress;}
+  .phone {grid-area: phone;}
+  .hours {grid-area: hours;}
+
+  .menu-picture {grid-area: menu-picture;}
+  .menu-card {grid-area: menu-card;}
+  
+  .ingredients-title {grid-area: ingredients-title;}
+  .ingredients-fresh-icon {grid-area: ingredients-fresh-icon;}
+  .ingredients-local-icon {grid-area: ingredients-local-icon;}
+  .ingredients-homemade-icon {grid-area: ingredients-homemade-icon;}
+
+  .restaurant-title {grid-area: restaurant-title;}
+  .restaurant-description {grid-area: restaurant-description;}
+  .restaurant-img-1 {grid-area: restaurant-img-1;}
+  .restaurant-img-2 {grid-area: restaurant-img-2;}
+  .restaurant-img-3 {grid-area: restaurant-img-3;}
+
+  .legal {grid-area: legal;}
+  .copyright {grid-area: copyright;}
+  .social {grid-area: social;}
+  
+
+/***************/
+/* Visibility */
+/************/
+.hidden {display: none;}
+
+/***********/
+/* Sizing */
+/*********/
+.h-100 {height: 100%;}
+.w-100 {width: 100%;}
+.mh-100 {max-height: 100%;}
+.mw-100 {max-width: 100%;}
+.h-auto {height: auto;}
+.w-auto {width: auto;}
+
+/**************************/
+/* Padding, margin & gap */
+/************************/
+.gap-1r {gap: 1rem;}
+.gap-2r {gap: 2rem;}
+.gap-3r {gap: 3rem;}
+.gap-4r {gap: 4rem;}
+
+.pb-1r {padding-bottom: 1rem;}
+.pb-2r {padding-bottom: 2rem;}
+.pb-3r {padding-bottom: 3rem;}
+.pb-4r {padding-bottom: 4rem;}
+
+.pr-1r {padding-right: 1rem;}
+.pr-2r {padding-right: 2rem;}
+
+.pl-2r {padding-left: 2rem;}
+
+.mt-2r {margin-top: 2rem;}
+
+.mr-2r {margin-right: 2rem;}
+
+.mb-1r {margin-bottom: 1rem;}
+.mb-2r {margin-bottom: 2rem;}
+.mb-3r {margin-bottom: 3rem;}
+.mb-4r {margin-bottom: 4rem;}
+
+#mentions-legales, #politique-confidentialite {padding: 16rem 0 16rem 0;}
+#ingredients, #restaurant, #coordinate {padding: 8rem 0 8rem 0;}
+#carte {padding: 4rem 0 8rem 0}
+
+.phone {margin-bottom: 4rem;}
+
+nav[aria-labelledby="menu-navigation"] {padding-bottom: 2rem;}
+
+/******************/
+/* Colors & Img */
+/**************/
+/* Text Colors */
+.txt-gold {color: #C6B56D;}
+.txt-white {color: #fff;}
+.txt-black {color: #000;}
+
+/* Background Colors */
+.bg-yellow {background-color: #FCFCF4;}
+.bg-black {background-color: #000}
+
+/* Background Images */
+.picture, .menu-image {
+  background: url("../img/burgerMenu.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.cta {
+  background: #C6B56D;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.cta:hover {
+  background: #91C5CD;
+  transition: all 0.5s ease;
+}
+
+/************/
+
+div[aria-labelledby="menu-navigation"]{
+  margin-bottom: 3vh;
+}
+
+nav[aria-labelledby="menu-navigation"] ul{
+  width: 100vw;
+  gap: 1rem;
+}
+
+footer a{
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+
+}
+
+/* Back */
+.input-back {
+  background: #FFF;
+  border: 2px solid #C6B56D;
+  width: 100%;
+  display: block;
+}
+
+.input-back input {
+  height: 2.5rem;
+}
+
+.button-back {
+  background: #C6B56D;
+  border: none;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: 'Merriweather', serif;
+}
+
+.button-back:hover {
+  background: #91C5CD;
+  transition: all 0.5s ease;
+}
+
+/******************/
+/* Media queries */
+/****************/
+/* Way Smaller */
+@media (min-width: 320px) {
+  .iosFix {margin-right: unset;}
+
+  .img-40-40 {
+    height: 20rem; 
+    width: 20rem; 
+    object-fit: cover;
+  }
+
+  /* Header */
+  .desktop-menu {display: none;}
+  .content-navbar {
+    width: unset;
+    margin: unset;
+    grid-template-columns: unset;}
+  }
+
+  /* Footer */
+  .copyright {padding: 2rem;}
+  .legal {padding: 3rem;}
+ 
+
+  #carte ul {display: inline-block;}
+  #carte li {padding-bottom: 2rem;}
+
+  /* Grid */
+  .content-coordinate {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "adress"
+    "hours"
+    "phone";
+  }
+
+  .content-menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "menu-picture" 
+    "menu-card";
+  }
+
+  .content-ingredients {
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "ingredients-title"
+      "ingredients-fresh-icon"
+      "ingredients-local-icon" 
+      "ingredients-homemade-icon";
+  }
+
+  .content-restaurant {
+    grid-template-rows: auto;
+    grid-template-areas:
+      "restaurant-pic-1"
+      "restaurant-pic-2" 
+      "restaurant-pic-3";
+    justify-content: center;
+  }
+  .restaurant-pic-1, .restaurant-pic-2, .restaurant-pic-3 {margin-top: 4rem;}
+
+  .content-footer {
+    grid-auto-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "copyright" 
+      "legal" 
+      "social";
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Grid Icons */
+  .ingredients-fresh-icon, .ingredients-local-icon {
+    padding-bottom: 4rem;
+  }
+
+  /* Menu Image */
+  .menu-image {
+    height: 50vh; width: 100%;
+  }
+
+  /* H */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 2.0rem;
+  }
+
+  .icon-list{
+    flex-direction: column;
+  }
+
+/* Iphone X/XS Fix */
+@media (min-width: 375px) {
+
+  /* H */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 2.4rem;
+  }
+
+}
+
+/* Extra Small */
+@media (min-width: 540px) {
+
+  /* H */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small */
+@media (min-width: 640px) {
+
+}
+
+/* Medium Ipad Portrait */
+@media (min-width: 768px) {
+
+}
+
+/* Large Ipad Landscape */
+@media (min-width: 1024px) {
+
+}
+
+/* XL */
+@media (min-width: 1280px) { 
+  .iosFix {margin-right: 1rem;}
+
+  .button_container {
+    display: none;
+  }
+
+  .img-40-40 {
+    height: 25rem; 
+    width: 25rem; 
+    object-fit: cover;
+  }
+
+  /* Header */
+  .desktop-menu {display: revert;}
+  .content-navbar {
+    width: 75%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }  
+
+  #carte ul {display: flex;}
+  #carte li {padding-bottom: unset;}
+
+  /* Grid */
+  .content-coordinate {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "adress hours phone";
+  }  
+
+  .content-menu {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "menu-picture" "menu-card";
+  }
+
+  .content-ingredients {
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "ingredients-title ingredients-title ingredients-title"
+      "ingredients-fresh-icon ingredients-local-icon ingredients-homemade-icon";
+  }
+
+  .content-restaurant {
+    grid-template-rows: auto;
+    grid-template-areas:
+      "restaurant-pic-1 restaurant-pic-2 restaurant-pic-3";
+    justify-content: space-between;
+  }
+  .restaurant-pic-1, .restaurant-pic-2, .restaurant-pic-3 {margin-top: 6rem;}
+
+  .content-footer {
+    grid-auto-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "copyright legal social";
+    justify-content: space-between;
+    text-align: unset;
+  }
+
+  /* Grid Icons */
+  .ingredients-fresh-icon, .ingredients-local-icon {
+    padding-bottom: unset;
+  }
+
+  /* Menu Image */
+  .menu-image {
+    height: unset; width: 100%;
+  }
+
+  /* H2 */
+  #coordinate h2 {
+    text-align: unset;
+  }
+  
+}
+
+/* XXL */
+@media (min-width: 1600px) { 
+  .img-40-40 {
+    height: 30rem; 
+    width: 30rem; 
+    object-fit: cover;
+  }
+}
